@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+#ram{
+width:400px;
+height:200px;
+}</style>
+<title>switch game</title>
+</head>
+<body>
+<form name="form">
+<textarea id="ram" name="fname" onclick="time1()"></textarea><br>
+<input type="button" value="char-count" onclick="lenth(form.fname.value)">
+<input type="button" value="word-count" onclick="wordcount(form.fname.value)">
+<input type="button" value="line-count" onclick="line(form.fname.value)">
+<input type="button" value="Total-time" onclick="time()">
+<input type="button" value="space" onclick="form.fname.value+=' '">
+<input type="button" value="new-line" onclick="form.fname.value+='\n'">
+<input type="button" value="reset" onclick="form.fname.value=' '"><br>
+<span id="ram1"></span><br>
+<span id="ram2"></span><br>
+<span id="ram3"></span><br>
+<span id="ram4"></span><br>
+
+
+
+
+</form>
+<script>
+function lenth(str){
+var p=str.length;
+document.getElementById('ram1').innerHTML='lenth is '+ p;
+};
+function wordcount(str1)
+{
+var count=1;
+var word=str1.split('');
+for(i=0;i<word.length;i++){
+if(word[i]==' '||word[i]=='\n')
+count+=1;}
+document.getElementById('ram2').innerHTML=count;
+};
+function line(str){
+var count=1;
+var word=str.split('');
+for(i=0;i<word.length;i++){
+if(word[i]=='\n')
+count+=1;}
+document.getElementById('ram3').innerHTML='total line is '+count;
+};
+var h1,h;
+function time1(){
+ var d= new Date();
+h1=d.getTime();
+};
+function time(){
+var d=new Date();
+ h=d.getTime();
+h-=h1;
+h/=1000;
+document.getElementById('ram4').innerHTML='total time is '+h + 'seconds';
+};
+</script>
+</body>
+</html>
